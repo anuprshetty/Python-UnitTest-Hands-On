@@ -24,6 +24,13 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(calculator.divide(10, 5), 2)
         self.assertEqual(calculator.divide(-1, 1), -1)
         self.assertEqual(calculator.divide(-1, -1), 1)
+        self.assertEqual(calculator.divide(9, 2), 4.5)
+
+        # Exception checking - 1st method
+        self.assertRaises(ValueError, calculator.divide, 10, 0)
+        # Exception checking - 2nd method (Using 'context manager')
+        with self.assertRaises(ValueError):
+            calculator.divide(10, 0)
 
 
 if __name__ == "__main__":
