@@ -2,6 +2,18 @@ import unittest
 from employee import Employee
 
 class TestEmployee(unittest.TestCase):
+
+    # For each test case, seperate instance of 'TestEmployee' class is created to run that perticular test case.
+
+    # As 'setUpClass' and 'tearDownClass' methods not related to perticular test case, these methods are defined as 'classmethod'.
+    @classmethod
+    def setUpClass(cls):
+        print("setUpClass")
+
+    @classmethod
+    def tearDownClass(cls):
+        print("tearDownClass")
+    
     # runs before each test cases
     def setUp(self):
         print("setUp")
