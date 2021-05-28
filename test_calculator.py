@@ -28,7 +28,7 @@ class TestCalculator(unittest.TestCase):
 
         # Exception checking - 1st method
         self.assertRaises(ValueError, calculator.divide, 10, 0)
-        # Exception checking - 2nd method (Using 'context manager')
+        # Exception checking - 2nd method (Using 'context manager' --> automatically deallocates the resources in the memory after the usage.)
         with self.assertRaises(ValueError):
             calculator.divide(10, 0)
 
