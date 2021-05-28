@@ -2,6 +2,21 @@ import unittest
 from unittest.mock import patch
 from employee import Employee
 
+# Important Points:
+# - Unit tests are written to test the functionality of the code. i.e., whether our code is working as expected or not.
+# - 'Unit' for Testing depends upon individual programmer.
+# - 1...n functions, 1...n lines of code, 1...n objects, etc. (Capable of executing independently)
+# - Unit tests are tests written for testing a unit of code.
+# - One Unit Test runs independently of any other Unit Test, Code, etc. 
+# - External dependencies are managed with doubles (Mocks / Fakes / Stubs)
+# - Each Unit Test should run within milliseconds.
+# - Writing Unit Tests --> 3 Steps --> Arrange (Initializations) - Act (Call the function/code under test) - Assert (Verify the result - Whether it is expected or not) --> (AAA Model)
+
+# Test Doubles:
+# - Used in lieu of external dependencies like DB, Web, API, Library, Network, etc.
+# - Easy to simulate various scenarios.
+# - Some of the most widely used test doubles - Mocks, Fakes, Stubs.
+
 class TestEmployee(unittest.TestCase):
 
     # For each test case, seperate instance of 'TestEmployee' class is created to run that perticular test case.
