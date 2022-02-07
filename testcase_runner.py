@@ -9,22 +9,6 @@ TEST_COVERAGE_FILE_DIR = "test_coverage"
 TEST_COVERAGE_FILE_NAME = "index.html"
 TEST_COVERAGE_FILE = os.path.join(TEST_COVERAGE_FILE_DIR, TEST_COVERAGE_FILE_NAME)
 
-app = Flask(__name__, template_folder=TEST_COVERAGE_FILE_DIR, static_folder=TEST_COVERAGE_FILE_DIR, static_url_path='/test-coverage')
-
-
-@app.route('/', methods=['GET'])
-def home():
-	return flask.redirect("/test-coverage")
-
-
-@app.route('/test-coverage/', methods=['GET'])
-def test_coverage():
-	testcase_runner = TestcaseRunner()
-	# testcase_runner.run_testcase_without_coverage()
-	testcase_runner.run_testcase_with_coverage()
-	global TEST_COVERAGE_FILE_NAME
-	return render_template(TEST_COVERAGE_FILE_NAME)
-
 
 class TestcaseRunner():
 
@@ -37,7 +21,6 @@ class TestcaseRunner():
 		print(self.run_testcase_without_coverage.__name__)
 		tests = unittest.TestLoader().discover('.')
 		unittest.TextTestRunner(verbosity=2).run(tests)
-
 
 	def run_testcase_with_coverage(self):
 		"""Runs the testcases with coverage"""
@@ -59,6 +42,24 @@ class TestcaseRunner():
 		covdir = os.path.dirname(TEST_COVERAGE_FILE)
 		cov.html_report(directory=covdir)
 		cov.erase()
+
+
+testcase_runner = TestcaseRunner()
+# testcase_runner.run_testcase_without_coverage()
+testcase_runner.run_testcase_with_coverage()
+
+app = Flask(__name__, template_folder=TEST_COVERAGE_FILE_DIR, static_folder=TEST_COVERAGE_FILE_DIR, static_url_path='/test-coverage')
+
+
+@app.route('/', methods=['GET'])
+def home():
+	return flask.redirect("/test-coverage")
+
+
+@app.route('/test-coverage/', methods=['GET'])
+def test_coverage():
+	global TEST_COVERAGE_FILE_NAME
+	return render_template(TEST_COVERAGE_FILE_NAME)
 
 
 if __name__ == '__main__':
