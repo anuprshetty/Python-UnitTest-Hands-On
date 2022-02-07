@@ -87,3 +87,7 @@ class TestEmployee(unittest.TestCase):
             schedule = self.emp_2.monthly_schedule('July')
             mocked_get.assert_called_with('http://company.com/Lal/July')
             self.assertEqual(schedule, 'Bad Response!')
+
+
+if __name__ == "__main__":
+    unittest.main()
