@@ -13,7 +13,7 @@ TEST_COVERAGE_FILE = os.path.join(TEST_COVERAGE_FILE_DIR, TEST_COVERAGE_FILE_NAM
 class TestcaseRunner():
 
 	_FILE_INCLUDE_PATTERNS = ['./*']
-	_FILE_OMIT_PATTERNS = ['*/test_*', 'venv/*']
+	_FILE_OMIT_PATTERNS = ['*/test_*', 'venv/*', 'testcase_runner.py']
 
 	def run_testcase_without_coverage(self):
 		"""Runs the testcases without coverage"""
