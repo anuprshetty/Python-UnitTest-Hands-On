@@ -19,7 +19,7 @@ class TestcaseRunner():
 		print(self.run_testcase_with_coverage.__name__)
 		cov = coverage.Coverage(
 			branch=True,
-			include='./*',
+			include=['./*'],
 			omit=['*/test_*', 'venv/*']
 		)
 		cov.start()
@@ -27,7 +27,7 @@ class TestcaseRunner():
 		unittest.TextTestRunner(verbosity=2).run(tests)
 		cov.stop()
 		cov.save()
-		print('Coverage Summary: ')
+		print('\nCoverage Summary: ')
 		cov.report()
 		covdir = os.path.join(os.path.dirname(__file__), "test_coverage")
 		cov.html_report(directory=covdir)
