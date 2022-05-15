@@ -9,7 +9,7 @@ Hands-on experience on Python unittest framework.
 - coverage run -m unittest discover -vv
 - coverage report --show-missing
 - coverage html
-- python testcase_runner.py
+- python code_coverage_runner.py
 
 
 ## References
