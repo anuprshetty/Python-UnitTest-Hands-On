@@ -4,6 +4,7 @@ Hands-on experience on Python unittest framework.
 
 ## Commands
 
+- NOTE: create __init__.py file in all the folders where unittest files are kept. Only then unittest module will identify unittest files and unittest cases.
 - python test_calculator.py
 - python test_employee.py
 - coverage run -m unittest discover -vv
