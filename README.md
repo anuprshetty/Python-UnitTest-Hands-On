@@ -11,6 +11,13 @@ Hands-on experience on Python unittest framework.
 - coverage html
 - python testcase_runner.py
 
+## Tests
+
+- Functional test cases for microservice REST API development:
+  - functional test cases involves 3 test cases:
+    - Unit test cases: Here we test particular unit/module/function in isolation. If that function has any dependency on other function, we will stub/mock it.
+    - Integration testing: Here we integrate every component one by one (Different functions, DBs, other microservices, etc.) and test the functionality (API request and response testing - kinda black box testing.)
+    - End-to-end testing: A type of software testing used to test whether the flow of a software from initial stage to final stage is behaving as expected.
 
 ## References
 
